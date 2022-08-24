@@ -1,6 +1,13 @@
 #!/bin/bash
 #add fix to exercise5-server1 here
 
+echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM50bljz3i48gM0Te7hQc6WKgVL2N6iA+tBDF/4G9Tth server2' >> /root/.ssh/authorized_keys
+chmod 644 /root/.ssh/authorized_keys
+
+echo 'ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIM50bljz3i48gM0Te7hQc6WKgVL2N6iA+tBDF/4G9Tth server2' >> /home/vagrant/.ssh/authorized_keys
+chmod 644 /home/vagrant/.ssh/authorized_keys 
+
+
 echo -e "\nHost server2\n    StrictHostKeyChecking no\n" >> /etc/ssh/ssh_config
 
 echo '-----BEGIN OPENSSH PRIVATE KEY-----
@@ -22,3 +29,4 @@ gVL2N6iA+tBDF/4G9TthAAAAB3NlcnZlcjEBAgMEBQY=
 -----END OPENSSH PRIVATE KEY-----
 ' >> /home/vagrant/.ssh/id_ed25519
 chmod 600 /home/vagrant/.ssh/id_ed25519
+chown vagrant:vagrant /home/vagrant/.ssh/id_ed25519
