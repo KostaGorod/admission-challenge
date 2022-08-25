@@ -21,7 +21,7 @@ then
     dest_server="server2"
 fi
 
-#check if there's more than 2 vars
+#check if there's at lesat 2 vars
 var_count=$(echo ${@} | wc -w)
 if [[ "$var_count" -lt "2" ]]
 then
